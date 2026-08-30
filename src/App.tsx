@@ -201,6 +201,16 @@ function CountdownTimer() {
 export default function WeddingInvitation() {
   const [isOpened, setIsOpened] = useState(false);
   const [isLowPerformanceMode, setIsLowPerformanceMode] = useState(false);
+  const audioRef = React.useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (isOpened && audioRef.current) {
+      audioRef.current.play().catch(e => console.log("Audio autoplay blocked or failed:", e));
+    } else if (!isOpened && audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  }, [isOpened]);
 
   useEffect(() => {
     const motionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -238,6 +248,7 @@ export default function WeddingInvitation() {
       className={`h-[100dvh] w-full bg-[#fdfaf5] transition-all duration-1000 ${isOpened ? "overflow-y-auto overflow-x-hidden smooth-mobile-scroll" : "overflow-hidden flex items-center justify-center"
         } relative font-montserrat scroll-smooth`}
     >
+      <audio ref={audioRef} src="/Edd_Sheeran_-_Perfect_(mp3.pm) (2).mp3" loop />
       <MandalaFrame minimal={isLowPerformanceMode} />
       <FloatingPetals disabled={isLowPerformanceMode} />
 
