@@ -1054,9 +1054,12 @@ export default function WeddingInvitation() {
               </section>
 
               {/* Footer */}
-              <footer className="py-12 border-t border-theme-200/30 text-center relative z-10 space-y-3">
+              <footer className="py-12 border-t border-theme-200/30 text-center relative z-10 space-y-3 px-4">
                 <p className="text-[8px] md:text-[10px] uppercase tracking-[0.5em] text-stone-400 font-bold">
                   © 2026 Nipuni & Geeshan. <span className="hidden md:inline">|</span><br className="md:hidden block mt-2" /> All rights reserved.
+                </p>
+                <p className="text-stone-500 text-[10px] md:text-xs mt-4 font-sans tracking-wider">
+                  Want a beautiful wedding website like this? Create yours with <a target="_blank" rel="noreferrer" className="text-theme-700 hover:text-theme-900 underline font-bold transition-colors" href="https://wa.me/94707819074">invitemint</a>
                 </p>
               </footer>
             </div>
